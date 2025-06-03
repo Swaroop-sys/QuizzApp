@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "775339450920",
+    "project_id": "fir-learning-4cd12",
+    "storage_bucket": "fir-learning-4cd12.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:775339450920:android:aa9deae4f0ce5d18460b1d",
+        "android_client_info": {
+          "package_name": "com.example.firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPN3lE3FZ40BJT9I5kybs1fLpNhfykTxY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:775339450920:android:c1d78ce2543538ea460b1d",
+        "android_client_info": {
+          "package_name": "com.example.quizapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPN3lE3FZ40BJT9I5kybs1fLpNhfykTxY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
