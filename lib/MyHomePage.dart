@@ -1,5 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:quizapp/QuizzCategory.dart';
+import 'package:quizapp/Login.dart';
+import 'package:quizapp/QuizzPage.dart';
+import 'package:quizapp/quiz.dart';
 
 class MyHomepPge extends StatelessWidget {
   const MyHomepPge({super.key});
@@ -11,6 +14,13 @@ class MyHomepPge extends StatelessWidget {
         title: Center(
           child: Text("Welcome To Tech-Quizzz", style: TextStyle(fontSize: 22)),
         ),
+        leading: InkWell(
+          child: Icon(Icons.logout),
+          onTap: () async {
+            FirebaseAuth.instance.signOut();
+            Navigator.of(context).pushReplacementNamed('/login');
+          },
+        ),
       ),
       body: Material(
         child: ListView.separated(
@@ -20,7 +30,16 @@ class MyHomepPge extends StatelessWidget {
               title: Text(QuizzCategory.category[index]),
               leading: Icon(Icons.question_answer),
               trailing: Icon(Icons.arrow_forward_ios),
-              tileColor: Colors.white, // Optional: gives each tile a background
+              tileColor: Colors.white,
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) =>
+                        QuizzPage(category: QuizzCategory.category[index]),
+                  ),
+                );
+              },
             );
           },
           separatorBuilder: (context, index) =>

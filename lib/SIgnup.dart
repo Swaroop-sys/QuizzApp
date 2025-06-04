@@ -17,7 +17,7 @@ class _SignUpPageState extends State<SignUpPage> {
   final TextEditingController _confirmPasswordController =
       TextEditingController();
 
-  Future<void> signup(String email, String password) async {
+  signup(String email, String password) async {
     if (email.isEmpty || password.isEmpty) {
       return showDialog(
         context: context,
@@ -140,6 +140,16 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
                 child: const Text('Sign Up'),
               ),
+            ),
+            Text("Already Have Account"),
+            TextButton(
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginPage()),
+                );
+              },
+              child: const Text("Login"),
             ),
           ],
         ),

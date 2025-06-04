@@ -14,7 +14,7 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
-  Future<void> login(String email, String password) async {
+  login(String email, String password) async {
     if (email.isEmpty || password.isEmpty) {
       showDialog(
         context: context,
@@ -49,7 +49,10 @@ class _LoginPageState extends State<LoginPage> {
         context: context,
         builder: (context) => AlertDialog(
           title: const Text("Error"),
-          content: Text(ex.message ?? "An error occurred."),
+          content: Text(
+            "Wrong Credentials",
+            style: TextStyle(color: Colors.red),
+          ),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),
