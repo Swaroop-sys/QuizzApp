@@ -76,10 +76,15 @@ class _LoginPageState extends State<LoginPage> {
           children: [
             const Text(
               'Welcome Back',
-              style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontSize: 28,
+                // fontWeight: FontWeight.bold,
+                fontFamily: 'Pacifico',
+              ),
             ),
             const SizedBox(height: 40),
             TextField(
+              cursorColor: Colors.deepPurple,
               controller: _emailController,
               decoration: const InputDecoration(
                 labelText: 'Email',
@@ -109,7 +114,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             const SizedBox(height: 10),
-            const Text("Don't have an account?"),
+            const Text("Don't Have An Account?"),
             TextButton(
               onPressed: () {
                 Navigator.pushReplacement(

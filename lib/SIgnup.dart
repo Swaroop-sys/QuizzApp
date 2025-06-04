@@ -141,7 +141,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 child: const Text('Sign Up'),
               ),
             ),
-            Text("Already Have Account"),
+            Text("Already Have Account?"),
             TextButton(
               onPressed: () {
                 Navigator.pushReplacement(
