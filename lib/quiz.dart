@@ -1,21 +1,24 @@
 import 'package:flutter/material.dart';
-
 import 'Questions.dart';
 
-class QuizzPage extends StatelessWidget {
+class QuizzPage extends StatefulWidget {
   final String category;
 
   const QuizzPage({super.key, required this.category});
 
   @override
+  State<QuizzPage> createState() => _QuizzPageState();
+}
+
+class _QuizzPageState extends State<QuizzPage> {
+  @override
   Widget build(BuildContext context) {
-    // ✅ Correct place to access category
-    final questions = QuestionBank.questionsByCategory[category];
+    final questions = QuestionBank.questionsByCategory[widget.category];
     int count = 0;
     return Scaffold(
-      appBar: AppBar(title: Text("$category Quiz")),
+      appBar: AppBar(title: Text("${widget.category} Quiz")),
       body: questions == null
-          ? Center(child: Text("No questions available for $category"))
+          ? Center(child: Text("No questions available for ${widget.category}"))
           : ListView.builder(
               itemCount: questions.length,
               itemBuilder: (context, index) {
@@ -39,20 +42,20 @@ class QuizzPage extends StatelessWidget {
                           return ListTile(
                             title: Text(q.options[i]),
                             leading: Icon(Icons.circle_outlined),
-
                             onTap: () {
                               final isCorrect = i == q.correctAnswerIndex;
-                              if (isCorrect) {
-                                count++;
-                              }
+                              setState(() {
+                                if (isCorrect) {
+                                  count++;
+                                }
+                              });
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
                                   content: Text(
                                     isCorrect
-                                        ? "Correct!    Score:$count"
+                                        ? "Correct!    Score: $count"
                                         : "Wrong!",
                                   ),
-
                                   backgroundColor: isCorrect
                                       ? Colors.green
                                       : Colors.red,
